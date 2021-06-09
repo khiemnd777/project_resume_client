@@ -1,0 +1,11 @@
+import './font.scss';
+import '../../font-faces/config';
+import './style.scss';
+import './widgets/contact-information/config';
+import './widgets/container/config';
+import './widgets/logo/config';
+import './widgets/text-field/config';
+import './widgets/title/config';
+import './widgets/copyright/config';
+import './widgets/post-items-list/config';
+import './widgets/post-item-body-button/config';

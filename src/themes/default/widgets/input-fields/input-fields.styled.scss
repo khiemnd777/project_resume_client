@@ -1,0 +1,52 @@
+@import '../../theme';
+
+.input_fields {
+  display: flex;
+  opacity: 0;
+  transition: opacity ease 0.5s;
+  &.visible {
+    opacity: 1;
+  }
+  &.top_bottom {
+    flex-direction: column;
+  }
+  &.left_right {
+    flex-direction: row;
+    padding-bottom: 2rem;
+  }
+  .fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: all ease 1s;
+    &.disabled {
+      @include disabled;
+    }
+  }
+  .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .submit {
+      @include button;
+      &.disabled {
+        @include disabled;
+      }
+    }
+    .submit2 {
+      @include button2;
+      &.disabled {
+        @include disabled;
+      }
+    }
+  }
+  &.left_right {
+    .actions {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}

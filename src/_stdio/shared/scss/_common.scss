@@ -1,0 +1,58 @@
+@use "sass:math";
+
+@mixin disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
+@mixin middleX {
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin middleY {
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin middle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+@mixin noPadding {
+  padding: 0;
+  margin: 0 auto;
+}
+@mixin gridLayout($itemNumberOnRow, $paddingLeftNumber, $paddingRightNumber, $paddingUnit, $minHeight) {
+  width: calc(100% / #{$itemNumberOnRow});
+  min-height: $minHeight;
+  .grid_item_container {
+    padding-left: #{math.div($paddingLeftNumber, 2) * $paddingUnit};
+    padding-right: #{math.div($paddingRightNumber, 2) * $paddingUnit};
+  }
+  &:nth-child(#{$itemNumberOnRow}n + 0) {
+    .grid_item_container {
+      padding-right: 0;
+      padding-left: #{$paddingLeftNumber * $paddingUnit};
+    }
+  }
+  &:nth-child(#{$itemNumberOnRow}n + 1) {
+    .grid_item_container {
+      padding-left: 0;
+      padding-right: #{$paddingRightNumber * $paddingUnit};
+    }
+  }
+  @media (max-width: $mobile) {
+    width: 100%;
+    padding-bottom: 2rem;
+    .grid_item_container {
+      padding: 0 !important;
+    }
+  }
+}
